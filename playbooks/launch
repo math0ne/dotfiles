@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-git pull
 
 if [[ `uname` == 'Linux' ]]; then
-ansible-playbook -u michael -i inventory -K ubuntu.yml --module-path custom_modules
+ansible-playbook -u math0ne -i inventory -K ~/.dotfiles/playbooks/ubuntu.yml
 fi
