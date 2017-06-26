@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  connection: local
+  remote_user: michael
+  vars:
+    user: michael
+  roles:
+    - ubuntu
+    - system

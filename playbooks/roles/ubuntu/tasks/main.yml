@@ -1,0 +1,14 @@
+---
+- name: Install libraries using APT
+  sudo: true
+  apt: name={{ item }} state=latest
+  with_items:
+    - git
+    - tmux
+    - stow
+    - zsh
+    - emacs
+
+- name: Change default shell to fish
+  sudo: true
+  user: shell='/usr/bin/fish' name={{ ansible_ssh_user }}
