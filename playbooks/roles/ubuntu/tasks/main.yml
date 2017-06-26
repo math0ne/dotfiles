@@ -11,4 +11,4 @@
 
 - name: Change default shell to fish
   sudo: true
-  user: shell='/usr/bin/fish' name={{ ansible_ssh_user }}
+  user: shell='/usr/bin/zsh' name={{ ansible_ssh_user }}
