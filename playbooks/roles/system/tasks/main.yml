@@ -1,4 +1,12 @@
 ---
+- git:
+    repo: 'https://github.com/bhilburn/powerlevel9k.git'
+    dest: ~/.dotfiles/home/zsh/powerlevel9k
+
+- git:
+    repo: 'https://github.com/syl20bnr/spacemacs.git'
+    dest: ~/.dotfiles/home/emacs/.emacs.d
+
 - name: Symlink dotfiles
   shell: stow -d ~/.dotfiles/home -t ~/ {{ item }}
   with_items:
