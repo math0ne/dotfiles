@@ -5,7 +5,7 @@
 
 - git:
     repo: 'https://github.com/syl20bnr/spacemacs.git'
-    dest: ~/.dotfiles/home/emacs/.emacs.d
+    dest: ~/.emacs.d
 
 - name: Symlink dotfiles
   shell: stow -d ~/.dotfiles/home -t ~/ {{ item }}
