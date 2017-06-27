@@ -4,7 +4,7 @@
 
 Dotfiles organized using Ansible and GNU stow, based on the work of mbullington.
 
-The color scheme is based off Base16. My preferred terminal is Kitty, in the putty directory you will find .reg files that will create a session with the color scheme in either putty or kitty.
+The font is SourceCodePro for Powerline The color scheme is based off Base16. My preferred terminal is Kitty, in the putty directory you will find .reg files that will create a session with the color scheme in either putty or kitty.
 
 To install run these commands:
 
