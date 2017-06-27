@@ -8,6 +8,7 @@
     - stow
     - zsh
     - emacs
+    - ranger
 
 - name: Change default shell to fish
   sudo: true
