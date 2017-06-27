@@ -1,0 +1,13 @@
+* TODO Figure out how I can combine multile subdirectories using stow
+* TODO Get my htop config in
+* TODO Setup VIM Theme
+* TODO Setup basic vim customizations
+* TODO Add vim to stow
+* Get IRC setup
+* TODO Secret managment
+** Get my work projects setup in spacemacs
+
+The ultimate plan:
+
+* Could go ultra minimal
+* Could lean into ascii art
