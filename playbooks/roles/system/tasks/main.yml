@@ -1,12 +1,12 @@
 ---
 - git:
     repo: 'https://github.com/bhilburn/powerlevel9k.git'
-    dest: ~/.dotfiles/home/zsh/powerlevel9k
+    dest: ~/.powerlevel9k
 
 - git:
     repo: 'https://github.com/syl20bnr/spacemacs.git'
     dest: ~/.emacs.d
-    
+
 - file:
     path: ~/.emacs.d/private
     state: absent

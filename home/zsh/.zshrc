@@ -1,4 +1,4 @@
-source  ~/powerlevel9k/powerlevel9k.zsh-theme
+source  ~/.powerlevel9k/powerlevel9k.zsh-theme
 
 # https://github.com/bhilburn/powerlevel9k/wiki/Show-Off-Your-Config
 # https://github.com/bhilburn/powerlevel9k/wiki/Stylizing-Your-Prompt
@@ -57,4 +57,3 @@ POWERLEVEL9K_TIME_FORMAT="%D{%H.%M %d.%m}"
 
 POWERLEVEL9K_STATUS_VERBOSE=false
 export DEFAULT_USER="$USER"
-
