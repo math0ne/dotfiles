@@ -6,6 +6,10 @@
 - git:
     repo: 'https://github.com/syl20bnr/spacemacs.git'
     dest: ~/.emacs.d
+    
+- file:
+    path: ~/.emacs.d/private
+    state: absent
 
 - name: Symlink dotfiles
   shell: stow -d ~/.dotfiles/home -t ~/ {{ item }}
