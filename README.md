@@ -1,6 +1,6 @@
 # Dotfiles Bankrupcy Project 
 
-![screenshots](https://raw.githubusercontent.com/openist/dotfiles/master/putty/dotfiles.png)
+![screenshots](https://raw.githubusercontent.com/openist/dotfiles/master/putty/dotfiles-tall.png)
 
 Dotfiles organized using Ansible and GNU stow, based on the work of mbullington.
 
