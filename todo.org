@@ -8,6 +8,10 @@
 ** TODO Setup VIM Theme
 ** TODO Setup basic vim customizations
 ** TODO Add vim to stow
+* Ansible Profiles
+** TODO Amazon Linux
+** TODO MAC OSX
+** TODO Debian
 * TODO Figure out how I can combine multile subdirectories using stow
 * TODO Move .spacemacs to org babel
 ** https://github.com/ale-batt/dotspacemacs/edit/master/ale-batt.org
