@@ -1,13 +1,36 @@
+#+STARTUP: showall
+#+STARTUP: hidestars
+
+* EMACS
+** TODO Magit Theme issues
+** TODO Org mode theme issue with sub level indicator
+* VIM
+** TODO Setup VIM Theme
+** TODO Setup basic vim customizations
+** TODO Add vim to stow
 * TODO Figure out how I can combine multile subdirectories using stow
 * TODO Get my htop config in
-* TODO Setup VIM Theme
-* TODO Setup basic vim customizations
-* TODO Add vim to stow
-* Get IRC setup
+* TODO Get IRC setup
+* TODO Move .spacemacs to org babel
+** https://github.com/ale-batt/dotspacemacs/edit/master/ale-batt.org
 * TODO Secret managment
 ** Get my work projects setup in spacemacs
+** It seems like a good way to do this would just be with a private repo that you deploy seperatly
+** get org file dir going with deft support
+** The private repo this draws against could be pulled via an optional ansible call, ie deploy --secret-repo http:://somesecretrepo.com/repo
+*** https://stackoverflow.com/questions/30662069/how-can-i-pass-variable-to-ansible-playbook-in-the-command-line
+* TODO Theme MC
 
-The ultimate plan:
+* The ultimate plan:
+** Could go ultra minimal
+** Could lean into ascii art
 
-* Could go ultra minimal
-* Could lean into ascii art
+* The feature list:
+** Matching themes for:
+*** tmux
+*** zsh
+*** spacemacs
+*** vim
+** Theme based on console colors
+** Deployable via ANSIBLE
+** Optional secrets repository deployment
