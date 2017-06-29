@@ -3,6 +3,10 @@ source  ~/.powerlevel9k/powerlevel9k.zsh-theme
 # https://github.com/bhilburn/powerlevel9k/wiki/Show-Off-Your-Config
 # https://github.com/bhilburn/powerlevel9k/wiki/Stylizing-Your-Prompt
 
+# Aliases
+alias irssi='TERM=screen-256color irssi'
+alias nano='TERM=screen-256color nano'
+
 # Disable dir/git icons
 POWERLEVEL9K_MODE='awesome-patched'
 

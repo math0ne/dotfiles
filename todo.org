@@ -9,10 +9,6 @@
 ** TODO Setup basic vim customizations
 ** TODO Add vim to stow
 * TODO Figure out how I can combine multile subdirectories using stow
-* DONE Get my htop config in
-  CLOSED: [2017-06-29 Thu 05:53]
-* TODO Get IRC setup
-** https://github.com/xero/dotfiles/blob/master/irssi/.irssi/neongold.theme
 * TODO Move .spacemacs to org babel
 ** https://github.com/ale-batt/dotspacemacs/edit/master/ale-batt.org
 * TODO Secret managment
@@ -22,7 +18,13 @@
 ** The private repo this draws against could be pulled via an optional ansible call, ie deploy --secret-repo http:://somesecretrepo.com/repo
 *** https://stackoverflow.com/questions/30662069/how-can-i-pass-variable-to-ansible-playbook-in-the-command-line
 * TODO Theme MC
-* Get a /bin directory going
+* DONE Get my htop config in
+  CLOSED: [2017-06-29 Thu 05:53]
+* DONE Get IRC setup
+  CLOSED: [2017-06-29 Thu 06:27]
+** https://github.com/xero/dotfiles/blob/master/irssi/.irssi/neongold.theme
+* DONE Get a /bin directory going
+  CLOSED: [2017-06-29 Thu 06:27]
 
 * The ultimate plan:
 ** Could go ultra minimal
