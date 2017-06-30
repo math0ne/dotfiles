@@ -7,6 +7,7 @@
 You should not put any user code in this function besides modifying the variable
 values."
   (setq-default
+
    ;; Base distribution to use. This is a layer contained in the directory
    ;; `+distribution'. For now available distributions are `spacemacs-base'
    ;; or `spacemacs'. (default 'spacemacs)
@@ -93,7 +94,6 @@ values."
   ;; This setq-default sexp is an exhaustive list of all the supported
   ;; spacemacs settings.
   (setq-default
-  
    ;; If non nil ELPA repositories are contacted via HTTPS whenever it's
    ;; possible. Set it to nil if you have no way to use HTTPS in your
    ;; environment, otherwise it is strongly recommended to let it set to t.
@@ -135,7 +135,9 @@ values."
    ;; List sizes may be nil, in which case
    ;; `spacemacs-buffer-startup-lists-length' takes effect.
    dotspacemacs-startup-lists '((recents . 5)
-                                (projects . 7))
+                                (projects . 7)
+                                (todos . 5)
+                                (bookmarks . 5))
    ;; True if the home buffer should respond to resize events.
    dotspacemacs-startup-buffer-responsive t
    ;; Default major mode of the scratch buffer (default `text-mode')
@@ -329,6 +331,9 @@ before packages are loaded. If you are unsure, you should try in setting them in
                                    ("iedit-insert" "White" (bar . 2)))
     "Colors assigned to evil states with cursor definitions.")
 
+
+
+
   (defun spacemacs/set-state-faces ()
     (cl-loop for (state color cursor) in spacemacs-evil-cursors
              do
@@ -355,6 +360,15 @@ you should place your code here."
              (set-face-attribute (intern (format "spacemacs-%s-face" state))
                                  nil
                                  :foreground "Black")))
+
+  (setq-default
+        linum-format "%4d \u2502 "
+        linum-relative-format "%4s \u2502 "
+             )
+
+
+
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
   (spacemacs/load-theme 'terminal))
 

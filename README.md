@@ -14,6 +14,10 @@ Includes configurations for:
 * ranger
 * irssi
 
+Currently Supported Operating Systems:
+
+* Ubuntu 16
+
 To install run these commands:
 
 ```
@@ -35,3 +39,4 @@ This config was inspired / built upon the work of:
 * bhilburn: https://github.com/bhilburn
 * jimeh: https://github.com/jimeh
 * Falkor: https://github.com/Falkor
+* chriskempson: https://github.com/chriskempson

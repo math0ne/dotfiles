@@ -1,9 +1,14 @@
-#+STARTUP: showall
-#+STARTUP: hidestars
+#+TITLE: Outstanding issues and goals for the config
 
 * EMACS
-** TODO Magit Theme issues
-** TODO Org mode theme issue with sub level indicator
+** Document org-bullets fix 
+** Broken keybaord shortcuts:
+*** Searching
+*** Select all 
+** DONE Magit Theme issues
+   CLOSED: [2017-06-29 Thu 18:33]
+** DONE Org mode theme issue with sub level indicator
+   CLOSED: [2017-06-29 Thu 18:23]
 * VIM
 ** TODO Setup VIM Theme
 ** TODO Setup basic vim customizations
@@ -16,12 +21,16 @@
 * TODO Move .spacemacs to org babel
 ** https://github.com/ale-batt/dotspacemacs/edit/master/ale-batt.org
 * TODO Secret managment
+** We will have to script the injection of variables into scrips that are deployed via the main repo
+** Seems like it might be hard to symlink the .ssh directory
 ** Get my work projects setup in spacemacs
 ** It seems like a good way to do this would just be with a private repo that you deploy seperatly
 ** get org file dir going with deft support
 ** The private repo this draws against could be pulled via an optional ansible call, ie deploy --secret-repo http:://somesecretrepo.com/repo
 *** https://stackoverflow.com/questions/30662069/how-can-i-pass-variable-to-ansible-playbook-in-the-command-line
-* TODO Theme MC
+* TODO Make some ascii art for the config
+* DONE Theme MC
+  CLOSED: [2017-06-29 Thu 20:57]
 * DONE Get my htop config in
   CLOSED: [2017-06-29 Thu 05:53]
 * DONE Get IRC setup
@@ -41,5 +50,6 @@
 *** spacemacs
 *** vim
 ** Theme based on console colors
+** Windows style keybaord shortcust
 ** Deployable via ANSIBLE
 ** Optional secrets repository deployment

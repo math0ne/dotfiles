@@ -3270,6 +3270,36 @@ Also affects 'linum-mode' background."
    ;; TODO: Add supports for all magit faces
    ;; https://github.com/magit/magit/search?utf8=%E2%9C%93&q=face
    ;;
+
+
+
+   `(magit-diff-file-heading-highlight
+     ((,terminal-class (:foreground ,"Yellow"
+                                    :background ,terminal-background))
+      (,terminal-256-class  (:foreground ,terminal-256-green
+                                         :background ,terminal-256-background))))
+
+   `(magit-section-highlight
+     ((,terminal-class (:foreground ,"White"
+                                    :background ,"Black"))
+      (,terminal-256-class  (:foreground ,terminal-256-green
+                                         :background ,"Black"))))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    `(magit-diff-added
      ((,terminal-class (:foreground ,terminal-green
                                    :background ,terminal-background))
