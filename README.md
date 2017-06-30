@@ -1,6 +1,6 @@
 # Personal dotfiles orchestrated with GNU Stow and Ansible
 
-![screenshots](https://raw.githubusercontent.com/openist/dotfiles/master/putty/dotfiles-tall.png)
+![screenshots](https://raw.githubusercontent.com/openist/dotfiles/master/putty/dotfiles-wide.png)
 
 Dotfiles organized using Ansible and GNU stow.
 

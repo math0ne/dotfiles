@@ -1,10 +1,11 @@
+
 #+TITLE: Outstanding issues and goals for the config
 
 * EMACS
-** Document org-bullets fix 
+** Document org-bullets fix
 ** Broken keybaord shortcuts:
 *** Searching
-*** Select all 
+*** Select all
 ** DONE Magit Theme issues
    CLOSED: [2017-06-29 Thu 18:33]
 ** DONE Org mode theme issue with sub level indicator
@@ -18,6 +19,7 @@
 ** TODO MAC OSX
 ** TODO Debian
 * TODO Figure out how I can combine multile subdirectories using stow
+** Currently messing up the .config directory
 * TODO Move .spacemacs to org babel
 ** https://github.com/ale-batt/dotspacemacs/edit/master/ale-batt.org
 * TODO Secret managment
