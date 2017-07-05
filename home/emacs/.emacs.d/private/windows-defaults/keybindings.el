@@ -40,7 +40,7 @@
 (unbind-key "C-w"    isearch-mode-map)
 (unbind-key "C-y"    isearch-mode-map)
 
-(bind-key* "M-f"     #'isearch-forward-regexp)
+(bind-key* "M-f"     #'helm-occur)
 (bind-key* "C-S-g"   #'helm-all-mark-rings)
 (bind-key* "C-h"     #'query-replace)                   ;; VS. Change to regex version by default?
 (bind-key* "M-h"     #'wd-query-replace-whole-buffer)

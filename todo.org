@@ -1,4 +1,3 @@
-
 #+TITLE: Outstanding issues and goals for the config
 
 * EMACS
