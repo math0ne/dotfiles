@@ -29,7 +29,8 @@
 ** get org file dir going with deft support
 ** The private repo this draws against could be pulled via an optional ansible call, ie deploy --secret-repo http:://somesecretrepo.com/repo
 *** https://stackoverflow.com/questions/30662069/how-can-i-pass-variable-to-ansible-playbook-in-the-command-line
-* TODO Make some ascii art for the config
+* DONE Make some ascii art for the config
+  CLOSED: [2017-07-05 Wed 07:12]
 * DONE Theme MC
   CLOSED: [2017-06-29 Thu 20:57]
 * DONE Get my htop config in
