@@ -10,6 +10,8 @@ alias nano='TERM=screen-256color nano'
 alias ls='/home/math0ne/.dotfiles/home/bin/better-ls-master/lsicons.py'
 alias lsa='/home/math0ne/.dotfiles/home/bin/better-ls-master/lsicons.py -l'
 
+alias g='git'
+
 # Disable dir/git icons
 POWERLEVEL9K_MODE='awesome-patched'
 

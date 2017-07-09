@@ -1,0 +1,79 @@
+[user]
+  email = math0ne@gmail.com
+  name = math0ne
+
+[alias]
+  a = !"git add -u; git add ."
+  c = commit -am
+  cs = commit -S -am
+  s = status -s
+  co = checkout
+  df = icdiff
+  cl = clone
+  m = merge
+  up = pull
+  p = push
+  lg = log --graph --pretty='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  fc = "!f() { git log --pretty=format:'* %C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%cn>%Creset' --decorate --date=relative --grep=$1; }; f"
+  fs = "!f() { git log --pretty=format:'* %C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%cn>%Creset' --decorate --date=relative -S$1; }; f"
+  contributors = shortlog -n -s
+  remotes = remote -v
+  graph = log --graph --color --pretty=format:"%C(yellow)%H%C(green)%d%C(reset)%n%x20%cd%n%x20%cn%C(blue)%x20(%ce)%x20%C(cyan)[gpg:%GK%x20%G?]%C(reset)%n%x20%s%n"
+
+[core]
+  editor = emacs
+  autocrlf = false
+
+[color]
+  ui = always
+
+[color "branch"]
+  current = cyan reverse
+  local = yellow
+  remote = green
+
+[color "status"]
+  added = yellow
+  changed = cyan
+  untracked = red
+
+[diff]
+  tool = icdiff
+
+[difftool]
+  prompt = false
+
+[pretty]
+  custom = "%C(magenta)%h%C(red)%d %C(yellow)%ar %C(green)%s %C(yellow)(%an)"
+  #                     │        │            │            │             └─ author name
+  #                     │        │            │            └─ message
+  #                     │        │            └─ date (relative)
+  #                     │        └─ decorations (branch, heads or tags)
+  #                     └─ hash (abbreviated)
+
+[difftool "icdiff"]
+  cmd = /usr/local/bin/icdiff --line-numbers $LOCAL $REMOTE
+
+# Rewrites of repo paths
+[url "git@github.com:"]
+  insteadOf = "gh:"
+  insteadOf = "git://github.com"
+  pushInsteadOf = "github:"
+  pushInsteadOf = "git://github.com/"
+  pushInsteadOf = "https://github.com/"
+
+[url "git://github.com/"]
+  insteadOf = "github:"
+
+[url "git@gist.github.com:"]
+  insteadOf = "gst:"
+  pushInsteadOf = "gist:"
+  pushInsteadOf = "git://gist.github.com/"
+  pushInsteadOf = "https://gist.github.com/"
+
+[url "git://gist.github.com/"]
+  insteadOf = "gist:"
+[pull]
+	rebase = true
+[rebase]
+	autoStash = true

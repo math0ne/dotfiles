@@ -21,6 +21,7 @@
 ** TODO MAC OSX
 * TODO Easy git seems like a good starting point for a git config
 ** hub looks good: https://hub.github.com/
+*** too hard to get running!
 ** cdiff as diff tool
 ** https://github.com/dikiaap/dotfiles/blob/master/.gitconfig
 * TODO Move to a ZSH framework
