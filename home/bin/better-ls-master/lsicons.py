@@ -168,7 +168,7 @@ if __name__ == '__main__':
             file_color = colorfmt(EXTENSIONS[u":DIRECTORY"][1])
         if options.is_list:
             try:
-                fil_estat = os.stat(f)
+                file_stat = os.stat(f)
                 file_line = u"{:<15}{:<10}{:<10}{}".format(
                                     permissions_to_unix_name(file_stat),
                                     get_user_name(file_stat),

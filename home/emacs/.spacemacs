@@ -70,7 +70,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(bm bookmark+ all-the-icons all-the-icons-dired)
+   dotspacemacs-additional-packages '(bm)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -320,6 +320,8 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
+
+  ;; cuatom cursor colors for evil
   (defvar spacemacs-evil-cursors '(("normal" "White" box)
                                    ("insert" "Yellow" (bar . 2))
                                    ("emacs" "White" box)
@@ -333,30 +335,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
                                    ("iedit-insert" "White" (bar . 2)))
     "Colors assigned to evil states with cursor definitions.")
 
-  ;;visual bookmarks
-  (setq bm-highlight-style 'bm-highlight-only-fringe)
-  (setq bm-buffer-persistence t)
-  (setq bm-repository-file "~/.emacs.d/.bm-repository")
-  (setq bm-repository-size nil)
-  (setq bm-restore-repository-on-load t)
-                                        ;(setq bm-cycle-all-buffers t)
-  (setq bm-recenter t)
-
-
-  ;;sets the color of the bm fringe marker
-  (defface bm-fringe-persistent-face
-    '((((class grayscale)
-        (background light)) (:background "Yellow"))
-      (((class grayscale)
-        (background dark))  (:background "Blue"))
-      (((class color)
-        (background light)) (:foreground "white"))
-      (((class color)
-        (background dark))  (:foreground "white")))
-    "Face used to highlight current line if bookmark is persistent."
-    :group 'bm)
-
-
+  ;; not sure if this has to be there
   (defun spacemacs/set-state-faces ()
     (cl-loop for (state color cursor) in spacemacs-evil-cursors
              do
@@ -374,10 +353,10 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
-  ;;(setq neo-theme 'nerd)
-
+  ;; keep a line seperating collapsed org trees
   (setq org-cycle-separator-lines 1)
 
+  ;;I think this is the face for the state indicator
   (defun spacemacs/set-state-faces ()
     (cl-loop for (state color cursor) in spacemacs-evil-cursors
              do
@@ -385,23 +364,16 @@ you should place your code here."
                                  nil
                                  :foreground "Black")))
 
-
-
-
-
+  ;;linum formats
   (setq-default
         linum-format "%4d \u2502 "
-        linum-relative-format "%4s \u2502 "
-             )
+        linum-relative-format "%4s \u2502 ")
 
+  ;;git gutter nerd font signs
   (custom-set-variables
    '(git-gutter:modified-sign "")
    '(git-gutter:added-sign "")
     '(git-gutter:deleted-sign ""))
-
-
-
-
 
   ;; -- new org file
   (defun org-new-file (pattern)
@@ -416,22 +388,75 @@ to modify it to the correct date."
       (interactive)
       (org-add-planning-info 'scheduled "00:00" 'closed))
 
-
-  
+  ;; we want git gutter to appear everywhere and work withlinum
   (global-git-gutter-mode t)
   (git-gutter:linum-setup)
 
-
-
-
+  ;; this is not working!
   (setq vc-follow-symlinks t)
   (setq find-file-visit-truename t)
 
- 
-
-
+  ;; custom bullets
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
+
+
+  (setq bm-restore-repository-on-load t)
+
+
+  (require 'bm)
+
+  ;; Allow cross-buffer 'next'
+  (setq bm-cycle-all-buffers t)
+
+  ;; where to store persistant files
+  (setq bm-repository-file "~/.emacs.d/bm-repository")
+
+  ;; save bookmarks
+  (setq-default bm-buffer-persistence t)
+
+  ;; Loading the repository from file when on start up.
+  (add-hook' after-init-hook 'bm-repository-load)
+
+  ;; Restoring bookmarks when on file find.
+  (add-hook 'find-file-hooks 'bm-buffer-restore)
+
+  ;; Saving bookmarks
+  (add-hook 'kill-buffer-hook #'bm-buffer-save)
+
+  ;; Saving the repository to file when on exit.
+  ;; kill-buffer-hook is not called when Emacs is killed, so we
+  ;; must save all bookmarks first.
+  (add-hook 'kill-emacs-hook #'(lambda nil
+                                 (bm-buffer-save-all)
+                                 (bm-repository-save)))
+
+  ;; The `after-save-hook' is not necessary to use to achieve persistence,
+  ;; but it makes the bookmark data in repository more in sync with the file
+  ;; state.
+  (add-hook 'after-save-hook #'bm-buffer-save)
+
+  ;; Restoring bookmarks
+  (add-hook 'find-file-hooks   #'bm-load-and-restore)
+  (add-hook 'after-revert-hook #'bm-load-and-restore)
+ (add-hook 'emacs-lisp-mode-hook #'bm-load-and-restore)
+  ;; The `after-revert-hook' is not necessary to use to achieve persistence,
+  ;; but it makes the bookmark data in repository more in sync with the file
+  ;; state. This hook might cause trouble when using packages
+  ;; that automatically reverts the buffer (like vc after a check-in).
+  ;; This can easily be avoided if the package provides a hook that is
+  ;; called before the buffer is reverted (like `vc-before-checkin-hook').
+  ;; Then new bookmarks can be saved before the buffer is reverted.
+  ;; Make sure bookmarks is saved before check-in (and revert-buffer)
+  (add-hook 'vc-before-checkin-hook #'bm-buffer-save)
+
+
+
+
+
+
+
+  ;; load my custom theme
   (spacemacs/load-theme 'terminal))
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -441,7 +466,7 @@ to modify it to the correct date."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(evil-want-Y-yank-to-eol nil)
+ '(bmkp-last-as-first-bookmark-file "~/.emacs.d/.cache/bookmarks")
  '(package-selected-packages
    (quote
     (all-the-icons yaml-mode base16-theme zonokai-theme zenburn-theme zen-and-art-theme underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme tronesque-theme toxi-theme tao-theme tangotango-theme tango-plus-theme tango-2-theme sunny-day-theme sublime-themes subatomic256-theme subatomic-theme spacegray-theme soothe-theme solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme smeargle seti-theme reverse-theme railscasts-theme purple-haze-theme professional-theme planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme pastels-on-dark-theme orgit organic-green-theme org-projectile org-present org-pomodoro alert log4e gntp org-download omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme noctilux-theme niflheim-theme naquadah-theme mustang-theme monokai-theme monochrome-theme molokai-theme moe-theme mmm-mode minimal-theme material-theme markdown-toc markdown-mode majapahit-theme magit-gitflow madhat2r-theme lush-theme light-soap-theme jbeans-theme jazz-theme ir-black-theme inkpot-theme htmlize heroku-theme hemisu-theme helm-gitignore helm-company helm-c-yasnippet hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md gandalf-theme fuzzy flatui-theme flatland-theme firebelly-theme farmhouse-theme evil-magit magit magit-popup git-commit with-editor espresso-theme dracula-theme django-theme darktooth-theme autothemer darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme company-statistics company color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized clues-theme cherry-blossom-theme busybee-theme bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme auto-yasnippet yasnippet apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes afternoon-theme ac-ispell auto-complete ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async))))
@@ -451,6 +476,10 @@ to modify it to the correct date."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:background nil))))
+ '(bm-face ((t (:background "black"))))
+ '(bm-fringe-face ((t (:background "black"))))
+ '(bm-fringe-persistent-face ((t (:background "black"))))
+ '(bm-persistent-face ((t (:background "black"))))
  '(git-gutter:added ((t (:foreground "cyan" :background "black"))))
  '(git-gutter:deleted ((t (:foreground "cyan" :background "black"))))
  '(git-gutter:modified ((t (:foreground "cyan" :background "black"))))

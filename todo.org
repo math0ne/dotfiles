@@ -1,10 +1,13 @@
 #+TITLE: Outstanding issues and goals for the config
 
 * EMACS
-** Document org-bullets fix
+** TODO Get org shift commands mapped to something usful
+** TODO Add support for visual bookmarks
 ** Broken keybaord shortcuts:
-*** Searching
-*** Select all
+*** TODO Searching
+*** TODO Select all
+** DONE Document org-bullets fix
+   CLOSED: [2017-07-05 Wed 07:26]
 ** DONE Magit Theme issues
    CLOSED: [2017-06-29 Thu 18:33]
 ** DONE Org mode theme issue with sub level indicator
@@ -16,11 +19,11 @@
 * Ansible Profiles
 ** TODO Amazon Linux
 ** TODO MAC OSX
-** TODO Debian
-* TODO Figure out how I can combine multile subdirectories using stow
-** Currently messing up the .config directory
-* TODO Move .spacemacs to org babel
-** https://github.com/ale-batt/dotspacemacs/edit/master/ale-batt.org
+* TODO Easy git seems like a good starting point for a git config
+** hub looks good: https://hub.github.com/
+** cdiff as diff tool
+** https://github.com/dikiaap/dotfiles/blob/master/.gitconfig
+* TODO Move to a ZSH framework
 * TODO Secret managment
 ** We will have to script the injection of variables into scrips that are deployed via the main repo
 ** Seems like it might be hard to symlink the .ssh directory
@@ -29,6 +32,11 @@
 ** get org file dir going with deft support
 ** The private repo this draws against could be pulled via an optional ansible call, ie deploy --secret-repo http:://somesecretrepo.com/repo
 *** https://stackoverflow.com/questions/30662069/how-can-i-pass-variable-to-ansible-playbook-in-the-command-line
+* TODO Org syncing using dropbox selective sync
+* TODO Need to integrate tmux 2.5 into ansible
+* DONE Figure out how I can combine multile subdirectories using stow
+  CLOSED: [2017-07-05 Wed 07:20]
+** Currently messing up the .config directory
 * DONE Make some ascii art for the config
   CLOSED: [2017-07-05 Wed 07:12]
 * DONE Theme MC
@@ -44,7 +52,8 @@
 * The ultimate plan:
 ** Could go ultra minimal
 ** Could lean into ascii art
-
+** Could try to focus on moving as much as possible to yaml
+*** https://github.com/razor-x/config_curator
 * The feature list:
 ** Matching themes for:
 *** tmux
