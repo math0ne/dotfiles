@@ -1,6 +1,6 @@
 [user]
-  email = math0ne@gmail.com
-  name = math0ne
+	email = math0ne@gmail.com
+	name = openist
 
 [alias]
   a = !"git add -u; git add ."

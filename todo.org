@@ -17,13 +17,10 @@
 ** TODO Setup basic vim customizations
 ** TODO Add vim to stow
 * Ansible Profiles
+** TODO Integrate tmux 2.5
+** TODO Integrate icdiff
 ** TODO Amazon Linux
 ** TODO MAC OSX
-* TODO Easy git seems like a good starting point for a git config
-** hub looks good: https://hub.github.com/
-*** too hard to get running!
-** cdiff as diff tool
-** https://github.com/dikiaap/dotfiles/blob/master/.gitconfig
 * TODO Move to a ZSH framework
 * TODO Secret managment
 ** We will have to script the injection of variables into scrips that are deployed via the main repo
@@ -35,6 +32,13 @@
 *** https://stackoverflow.com/questions/30662069/how-can-i-pass-variable-to-ansible-playbook-in-the-command-line
 * TODO Org syncing using dropbox selective sync
 * TODO Need to integrate tmux 2.5 into ansible
+* DONE Easy git seems like a good starting point for a git config
+  CLOSED: [2017-07-09 Sun 09:14]
+** hub looks good: https://hub.github.com/
+*** too hard to get running!
+** cdiff as diff tool
+** https://github.com/jeffkaufman/icdiff
+** https://github.com/dikiaap/dotfiles/blob/master/.gitconfig
 * DONE Figure out how I can combine multile subdirectories using stow
   CLOSED: [2017-07-05 Wed 07:20]
 ** Currently messing up the .config directory
@@ -56,6 +60,7 @@
 ** Could lean into ascii art
 ** Could try to focus on moving as much as possible to yaml
 *** https://github.com/razor-x/config_curator
+*** https://github.com/viasite-ansible/ansible-role-zsh
 * The feature list:
 ** Matching themes for:
 *** tmux

@@ -12,6 +12,9 @@ alias lsa='/home/math0ne/.dotfiles/home/bin/bin/better-ls-master/lsicons.py -l'
 
 alias g='git'
 
+SAVEHIST=1000
+HISTFILE=~/.zsh_history
+
 # Disable dir/git icons
 POWERLEVEL9K_MODE='awesome-patched'
 
@@ -65,3 +68,6 @@ POWERLEVEL9K_STATUS_VERBOSE=false
 export DEFAULT_USER="$USER"
 
 ZLE_RPROMPT_INDENT=0
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
