@@ -1,0 +1,112 @@
+version: '2'
+
+services:
+  rutorrent:
+    restart: always
+    image: linuxserver/rutorrent:latest
+    container_name: rutorrent
+    env_file: .env
+    ports:
+      - "80:80"
+      - "5000:5000"
+      - "6881:6881/udp"
+      - "51413:51413"
+    volumes:
+      - ${CONFIG_ROOT}/rtorrent:/config
+      - ${DATA_ROOT}:/downloads
+
+  jackett:
+    restart: always
+    image: linuxserver/jackett:latest
+    container_name: jackett
+    env_file: .env
+    ports:
+      - "9117:9117"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${CONFIG_ROOT}/jackett:/config
+      - ${DATA_ROOT}/watched:/downloads
+
+  sonarr:
+    restart: always
+    image: linuxserver/sonarr:latest
+    container_name: sonarr
+    env_file: .env
+    ports:
+      - "8989:8989"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${CONFIG_ROOT}/sonarr:/config
+      - ${DATA_ROOT}/completed:/downloadsfix
+      - ${DATA_ROOT}/watched:/watch
+      - ${MEDIA_ROOT}/tv:/tv
+
+  radarr:
+    restart: always
+    image: linuxserver/radarr:latest
+    container_name: radarr
+    env_file: .env
+    ports:
+      - "7878:7878"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${CONFIG_ROOT}/radarr:/config
+      - ${DATA_ROOT}/completed:/downloadsfix
+      - ${DATA_ROOT}/watched:/watch
+      - ${MEDIA_ROOT}/movies:/movies
+
+  resilio:
+    restart: always
+    image: linuxserver/resilio-sync
+    container_name: resilio
+    env_file: .env
+    logging:
+      driver: none
+    ports:
+      - "8888:8888"
+      - "55555:55555"
+    volumes:
+      - ${CONFIG_ROOT}/resilio:/config
+      - ${MEDIA_ROOT}:/sync/media
+
+  pureftpd:
+    restart: always
+    image: gimoh/pureftpd
+    container_name: pureftpd
+    environment:
+      - PURE_USERS=isolated+noanon+virt
+      - PURE_VIRT_USER_HOME_PATTERN=/srv/ftp/@USER@
+    ports:
+      - "21:21"
+      - "30000-30020:30000-30020"
+    volumes:
+      - ${CONFIG_ROOT}/pureftpd:/etc/pureftpd
+      - ${DATA_ROOT}/completed:/srv/ftp/math0ne
+    command: -c 20 -p 30000:30020 -P ${HOST}
+
+#  plex:
+#    restart: unless-stopped
+#    network_mode: "host"
+#    image: plexinc/pms-docker:beta
+#    container_name: plex
+#    env_file: .env
+#    environment:
+#      - PLEX_CLAIM=claim-y4bdG66Ypbxd3n6snsx6
+#    volumes:
+#      - ${MEDIA_ROOT}/tv:/tv
+#      - ${MEDIA_ROOT}/movies:/movies
+#      - ${CONFIG_ROOT}/plex:/config
+
+#  plexpy:
+#    restart: always
+#    image: linuxserver/plexpy:latest
+#    container_name: plexpy
+#    env_file: .env
+#    environment:
+#      - PGID=0
+#      - PUID=0
+#    ports:
+#      - "8181:8181"
+#    volumes:
+#      - "${CONFIG_ROOT}/plex/Library/Application Support/Plex Media Server/Logs:/logs:ro"
+#      - "${CONFIG_ROOT}/plexpy:/config"

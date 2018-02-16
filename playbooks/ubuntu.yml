@@ -7,3 +7,5 @@
   roles:
     - ubuntu
     - system
+    - tmux
+    - {role: 'tmux', tags: 'tmux'}

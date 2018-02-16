@@ -1,0 +1,8 @@
+---
+update: false
+install: true
+
+tmux_upgrade: true
+
+share_history: true
+aliases: true

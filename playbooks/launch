@@ -2,5 +2,5 @@
 
 
 if [[ `uname` == 'Linux' ]]; then
-ansible-playbook -u math0ne -i inventory -K ~/.dotfiles/playbooks/ubuntu.yml
+ansible-playbook -u math0ne -i inventory -vvvv -K ~/.dotfiles/playbooks/ubuntu.yml
 fi
