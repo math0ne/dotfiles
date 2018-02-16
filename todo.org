@@ -51,6 +51,7 @@
   CLOSED: [2017-06-29 Thu 06:27]
 
 * The ultimate plan:
+** Dockerized IRC Setup
 ** Could go ultra minimal
 ** Could lean into ascii art
 ** Could try to focus on moving as much as possible to yaml
