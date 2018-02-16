@@ -1,0 +1,3 @@
+# Install a role from GitHub
+- name: ansible-docker
+  src: https://github.com/nickjj/ansible-docker

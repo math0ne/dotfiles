@@ -2,5 +2,6 @@
 
 
 if [[ `uname` == 'Linux' ]]; then
+ansible-galaxy install --roles-path=roles_galaxy -r requirements.yml
 ansible-playbook -u math0ne -i inventory -vvvv -K ~/.dotfiles/playbooks/ubuntu.yml
 fi
