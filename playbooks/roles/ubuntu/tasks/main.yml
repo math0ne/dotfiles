@@ -4,11 +4,11 @@
   apt: name={{ item }} state=latest
   with_items:
     - git
-    - tmux
     - stow
     - zsh
     - emacs
     - ranger
+    - bc
 
 - name: Change default shell to fish
   sudo: true

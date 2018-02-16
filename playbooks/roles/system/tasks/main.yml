@@ -4,6 +4,7 @@
     dest: ~/.powerlevel9k
 
 - git:
+    force: true
     repo: 'https://github.com/syl20bnr/spacemacs.git'
     dest: ~/.emacs.d
 

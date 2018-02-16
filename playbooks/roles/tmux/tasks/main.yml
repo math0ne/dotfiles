@@ -8,7 +8,6 @@
 - name: Install tmux and git
   apt: name={{ item }} state=present
   with_items:
-    - tmux
     - git
   when: install
   become: true
@@ -27,10 +26,6 @@
     - alias tk='tmux kill-session -t'
   when: aliases
 
-- name: Check if tmux v2.0 is installed
-  raw: echo `tmux -V | cut -d' ' -f2`'<'2.0 | bc -l
-  register: tmux_version
-
 - name: Upgrade to tmux v2.0
   command: "{{ item }}"
   with_items:
@@ -38,6 +33,9 @@
     - apt-get install -y python-software-properties software-properties-common
     - add-apt-repository -y ppa:pi-rho/dev
     - apt-get update
-    - apt-get install -y tmux=2.0-1~ppa1~t
-  when: tmux_upgrade and tmux_version.stdout|trim == "1"
+    - apt-get install -y tmux-next
   become: yes
+
+- name: Symlink tmux-next to tmux
+  become: yes
+  command: ln -snf /usr/bin/tmux-next /usr/bin/tmux

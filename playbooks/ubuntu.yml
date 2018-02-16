@@ -1,6 +1,5 @@
 ---
-- name: "Main setup"
-  hosts: localhost
+- hosts: localhost
   connection: local
   remote_user: math0ne
   vars:
@@ -10,8 +9,7 @@
     - system
     - tmux
 
-- name: "Install Docker using an ansible galaxy role"
-  hosts: localhost
+- hosts: localhost
   connection: local
   remote_user: math0ne
   become: true
