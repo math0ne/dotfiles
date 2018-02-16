@@ -18,12 +18,11 @@ Currently Supported Operating Systems:
 
 * Ubuntu 16
 
-First create the user the system will run under:
+If necessary create a user, this cannot be run as root:
 
 ```
 adduser math0ne
 usermod -aG sudo math0ne
-sudo usermod -aG docker math0ne
 ```
 
 Edit playbooks/ubuntu.yml to correspond to the new user account.
@@ -32,7 +31,7 @@ Run these commands:
 
 ```
 sudo apt-get -y install ansible
-git clone https://github.com/openist/dotfiles.git ~/.dotfiles
+git clone https://github.com/math0ne/dotfiles.git ~/.dotfiles
 chmod +x ~/.dotfiles/playbooks/launch
 ~/.dotfiles/playbooks/launch
 ```
