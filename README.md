@@ -18,7 +18,17 @@ Currently Supported Operating Systems:
 
 * Ubuntu 16
 
-To install run these commands:
+First create the user the system will run under:
+
+```
+adduser math0ne
+usermod -aG sudo math0ne
+sudo usermod -aG docker math0ne
+```
+
+Edit playbooks/ubuntu.yml to correspond to the new user account.
+
+Run these commands:
 
 ```
 sudo apt-get -y install ansible
