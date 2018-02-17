@@ -26,15 +26,16 @@ Currently Supported Operating Systems:
 adduser math0ne
 usermod -aG sudo math0ne
 ```
-### 2. Edit playbooks/ubuntu.yml to correspond to the new user account.
-### 3. Run these commands:
+### 2. Login as the new user
+### 3. Edit playbooks/ubuntu.yml to correspond to the new user account.
+### 4. Run these commands:
 ```
 sudo apt-get -y install ansible
 git clone https://github.com/math0ne/dotfiles.git ~/.dotfiles
 chmod +x ~/.dotfiles/playbooks/launch
 ~/.dotfiles/playbooks/launch
 ```
-### 4. Close the session then log back in.
+### 5. Close the session then log back in.
 
 # Credits
 
