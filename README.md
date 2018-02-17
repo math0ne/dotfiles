@@ -13,6 +13,7 @@ Includes configurations for:
 * zsh
 * ranger
 * irssi
+* docker
 
 Currently Supported Operating Systems:
 
