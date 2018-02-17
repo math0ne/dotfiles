@@ -2,9 +2,9 @@
 
 ![screenshots](https://raw.githubusercontent.com/openist/dotfiles/master/putty/dotfiles-wide.png)
 
-Dotfiles organized using Ansible and GNU stow.
+Dotfiles organized using Ansible and GNU stow with a good splash of Docker.
 
-The font is SourceCodePro for Powerline. The color scheme is based off Base16. My preferred terminal is Kitty, in the putty directory you will find .reg files that will create a session with the color scheme in either putty or kitty.
+The font is SourceCodePro for Powerline. The color scheme is based off Base16. My preferred terminal is MinTTY or Kitty, in the putty/mintty directory you will find files to configure your terminal of choice.
 
 Includes configurations for:
 
@@ -18,17 +18,16 @@ Currently Supported Operating Systems:
 
 * Ubuntu 16
 
-If necessary create a user, this cannot be run as root:
+# Installation Instructions
 
+### 1. If necessary create a user, this cannot be run as root:
 ```
 adduser math0ne
 usermod -aG sudo math0ne
 ```
 
-Edit playbooks/ubuntu.yml to correspond to the new user account.
-
-Run these commands:
-
+### Edit playbooks/ubuntu.yml to correspond to the new user account.
+### Run these commands:
 ```
 sudo apt-get -y install ansible
 git clone https://github.com/math0ne/dotfiles.git ~/.dotfiles
@@ -36,7 +35,9 @@ chmod +x ~/.dotfiles/playbooks/launch
 ~/.dotfiles/playbooks/launch
 ```
 
-Close the session then log back in.
+### Close the session then log back in.
+
+# Credits
 
 This config was inspired / built upon the work of:
 
