@@ -1,2 +1,6 @@
+# ignores
 docker/seedbox/.env
 playbooks_galaxy/roles/*
+
+# keep the roles folder
+!playbooks_galaxy/roles/.gitkeep
