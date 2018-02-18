@@ -37,36 +37,25 @@ Currently Supported Operating Systems:
 
 # Installation Instructions
 
-* _(Optional)_ Create the user
-```
-adduser USERNAME
-```
-* _(Optional)_ Allow ths user to sudo
-```
-usermod -aG sudo USERNAME
-```
-* _(Optional)_ Change to the new user
-```
-su USERNAME
-```
-* Install ansible
+
+Install ansible as a non root user
 ```
 sudo apt-get -y install ansible
 ```
-* Clone the project
+Clone the project
 ```
 git clone https://github.com/math0ne/dotfiles.git ~/.dotfiles
 ```
-* Install the galaxy powered roles
+Install the galaxy powered roles
 ```
-ansible-galaxy install --roles-path=~/.dotfiles/playbooks_galaxy/roles -r ~/.dotfiles/playbooks/requirements.yml
+ansible-galaxy install --roles-path=~/.dotfiles/playbooks_galaxy/roles -r ~/.dotfiles/playbooks_galaxy/requirements.yml
 ansible-playbook --extra_vars "localuser=$user" -i ~/.dotfiles/playbooks/inventory -K ~/.dotfiles/playbooks_galaxy/main.yml
 ```
-* Install the main project
+Install the main project
 ```
 ansible-playbook --extra_vars "localuser=$user" -i ~/.dotfiles/playbooks/inventory -K ~/.dotfiles/playbooks/main.yml
 ```
-* Close the ssh session and log back in
+Close the ssh session and log back in
 
 # Credits
 
