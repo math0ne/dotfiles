@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-
-if [[ `uname` == 'Linux' ]]; then
-ansible-galaxy install --roles-path=~/.dotfiles/playbooks/roles -r ~/.dotfiles/playbooks/requirements.yml
-ansible-playbook -u math0ne -i inventory -K ~/.dotfiles/playbooks/ubuntu.yml
-fi

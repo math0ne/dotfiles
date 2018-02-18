@@ -4,16 +4,32 @@
 
 Dotfiles organized using Ansible and GNU stow with a good splash of Docker.
 
-The font is SourceCodePro for Powerline. The color scheme is based off Base16. My preferred terminal is MinTTY or Kitty, in the putty/mintty directory you will find files to configure your terminal of choice.
+The font is SourceCodePro Nerd Font. The color scheme is based off Base16.
 
-Includes configurations for:
+Features:
 
-* tmux
-* spacemacs
-* zsh
-* ranger
-* irssi
-* docker
+* unified color themes through applications
+* tmux configuration and upgraded install
+* spacemacs configuration
+* zsh terminal powered by the powerlevel9k framework
+* ranger configuration
+* irssi configuration
+* docker install and utilities
+* nerd font symbols features in zsh and spacemacs
+* configuration symlinks powered by gnu stow
+* htop configuration
+* git utilities and aliases
+* included putty / mintty configurations
+
+Upcoming features:
+
+* docker powered local application directory
+* node.js development enviroment install
+* ruby development enviroment install
+* icdiff install
+* secret management
+* emacs org directory syncing
+* dockerized irc setup
 
 Currently Supported Operating Systems:
 
@@ -21,21 +37,36 @@ Currently Supported Operating Systems:
 
 # Installation Instructions
 
-### 1. If necessary create a user, this cannot be run as root:
+* _(Optional)_ Create the user
 ```
-adduser math0ne
-usermod -aG sudo math0ne
+adduser USERNAME
 ```
-### 2. Login as the new user
-### 3. Edit playbooks/ubuntu.yml to correspond to the new user account.
-### 4. Run these commands:
+* _(Optional)_ Allow ths user to sudo
+```
+usermod -aG sudo USERNAME
+```
+* _(Optional)_ Change to the new user
+```
+su USERNAME
+```
+* Install ansible
 ```
 sudo apt-get -y install ansible
-git clone https://github.com/math0ne/dotfiles.git ~/.dotfiles
-chmod +x ~/.dotfiles/playbooks/launch
-~/.dotfiles/playbooks/launch
 ```
-### 5. Close the session then log back in.
+* Clone the project
+```
+git clone https://github.com/math0ne/dotfiles.git ~/.dotfiles
+```
+* Install the galaxy powered roles
+```
+ansible-galaxy install --roles-path=~/.dotfiles/playbooks_galaxy/roles -r ~/.dotfiles/playbooks/requirements.yml
+ansible-playbook --extra_vars "localuser=$user" -i ~/.dotfiles/playbooks/inventory -K ~/.dotfiles/playbooks_galaxy/main.yml
+```
+* Install the main project
+```
+ansible-playbook --extra_vars "localuser=$user" -i ~/.dotfiles/playbooks/inventory -K ~/.dotfiles/playbooks/main.yml
+```
+* Close the ssh session and log back in
 
 # Credits
 

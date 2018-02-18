@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  connection: local
+  remote_user: {{ localuser }}
+  become: true
+  vars:
+    docker_edition: "ce"
+    docker_channel: "edge"
+    docker_install_docker_compose: True
+    docker_users: [{{ localuser }}]
+  roles:
+    - ansible-docker
