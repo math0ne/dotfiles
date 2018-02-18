@@ -1,9 +1,9 @@
 ---
 - hosts: localhost
   connection: local
-  remote_user: {{ localuser }}
+  remote_user: "{{ localuser }}"
   vars:
-    user: {{ localuser }}
+    user: "{{ localuser }}"
   roles:
     - ubuntu
     - system

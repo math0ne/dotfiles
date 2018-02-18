@@ -48,11 +48,11 @@ git clone https://github.com/math0ne/dotfiles.git ~/.dotfiles
 **3. Install the galaxy powered roles**
 ```
 ansible-galaxy install --roles-path=~/.dotfiles/playbooks_galaxy/roles -r ~/.dotfiles/playbooks_galaxy/requirements.yml
-ansible-playbook --extra_vars "localuser=$user" -i ~/.dotfiles/.inventory -K ~/.dotfiles/playbooks_galaxy/main.yml
+ansible-playbook -i ~/.dotfiles/.inventory -K ~/.dotfiles/playbooks_galaxy/main.yml -e "localuser=$USER"
 ```
 **4. Install the main project**
 ```
-ansible-playbook --extra_vars "localuser=$user" -i ~/.dotfiles/.inventory -K ~/.dotfiles/playbooks/main.yml
+ansible-playbook -i ~/.dotfiles/.inventory -K ~/.dotfiles/playbooks/main.yml --e "localuser=$USER"
 ```
 **5. Close the ssh session and log back in**
 
