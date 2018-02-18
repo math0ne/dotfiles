@@ -36,7 +36,7 @@ Currently Supported Operating Systems:
 * Ubuntu 16
 
 # Installation Instructions
-<p class="callout warning">Run as a non root user</p>
+> Run as a non root user
 **1. Install ansible**
 ```
 sudo apt-get -y install ansible
