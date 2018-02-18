@@ -2,9 +2,7 @@
 
 ![screenshots](https://raw.githubusercontent.com/openist/dotfiles/master/putty/dotfiles-wide.png)
 
-Dotfiles organized using Ansible and GNU stow with a good splash of Docker.
-
-The font is SourceCodePro Nerd Font. The color scheme is based off Base16.
+Dotfiles organized using Ansible and GNU stow with a healthy splash of Docker. The font is SourceCodePro Nerd Font. The color scheme is based off Base16.
 
 Features:
 
@@ -37,7 +35,7 @@ Currently Supported Operating Systems:
 
 # Installation Instructions
 
-> Run as a non root user
+> Must be run as a non root user, if necessary create and add a user
 
 **1. Install ansible**
 ```
@@ -50,11 +48,11 @@ git clone https://github.com/math0ne/dotfiles.git ~/.dotfiles
 **3. Install the galaxy powered roles**
 ```
 ansible-galaxy install --roles-path=~/.dotfiles/playbooks_galaxy/roles -r ~/.dotfiles/playbooks_galaxy/requirements.yml
-ansible-playbook --extra_vars "localuser=$user" -i ~/.dotfiles/playbooks/inventory -K ~/.dotfiles/playbooks_galaxy/main.yml
+ansible-playbook --extra_vars "localuser=$user" -i ~/.dotfiles/.inventory -K ~/.dotfiles/playbooks_galaxy/main.yml
 ```
 **4. Install the main project**
 ```
-ansible-playbook --extra_vars "localuser=$user" -i ~/.dotfiles/playbooks/inventory -K ~/.dotfiles/playbooks/main.yml
+ansible-playbook --extra_vars "localuser=$user" -i ~/.dotfiles/.inventory -K ~/.dotfiles/playbooks/main.yml
 ```
 **5. Close the ssh session and log back in**
 

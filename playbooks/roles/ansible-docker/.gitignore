@@ -1,8 +1,0 @@
-.DS_Store
-*/**.DS_Store
-._*
-.*.sw*
-*~
-.idea/
-.vscode/
-*.retry
