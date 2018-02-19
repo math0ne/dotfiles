@@ -4,46 +4,30 @@
 
 Dotfiles organized using Ansible and GNU stow with a healthy splash of Docker. The font is SourceCodePro Nerd Font. The color scheme is based off Base16.
 
-Provided Roles:
+**Provided Roles:**
+* *core* - git and stow
+* *emacs* - spacemacs configuration and custom theme with integrated nerd font powered features
+* *htop* - custom theme
+* *irssi* - custom theme and setup
+* *ranger* - custom theme
+* *tmux* - tmux-next installation with custom theme and nerd font integration
+* *zsh* - zsh terminal powered by the powerlevel9k framework with custom theme, awesome aliases, and prompt featuring nerd font symbols throughout
+* *bin* - fun binary command line games utilities and screensavers
+* *docker* - installation and helper utilies and application library
 
-* bin - fun binary command line games utilities and screensavers
-* core - git and stow
-* emacs - spacemacs configuration and custom theme with integrated nerd font powered features
-* htop - custom theme
-* irssi - custom theme and setup
-* ranger - custom theme
-* tmux - tmux-next installation with custom theme and nerd font integration
-* zsh - zsh terminal powered by the powerlevel9k framework with custom theme, awesome aliases, and prompt featuring nerd font symbols throughout
-* docker - installation and helper utilies and application library
-
-Features:
-
+**Features:**
 * unified color themes through applications
 * nerd font symbols everywhere
 * configuration symlinks powered by gnu stow
 * included putty / mintty configurations
 
-Upcoming roles:
-
-* node.js - development enviroment install
-* ruby - development enviroment install
-* ircserver - bitlbee powered local bnc setup
-
-Upcoming features:
-
-* icdiff install
-* secret management
-* emacs org directory syncing
-
 Currently Supported Operating Systems:
-
 * Ubuntu 16
 
 # Installation Instructions
 
-> Must be run as a non root user, if necessary create and add a user
-
-> Edit playbooks/main.yml and playbooks_galaxy/main.yml and comment out or remove any roles that you don't want to install
+> * Must be run as a non root user, if necessary create and add a user
+> * Edit playbooks/main.yml and playbooks_galaxy/main.yml and comment out or remove any roles that you don't want to install
 
 **1. Install ansible**
 ```
@@ -67,7 +51,6 @@ ansible-playbook -i ~/.dotfiles/.inventory -K ~/.dotfiles/playbooks/main.yml --e
 # Credits
 
 This config was inspired / built upon the work of:
-
 * mbullington: https://github.com/mbullington
 * xero: https://github.com/xero
 * PhilipDaniels: https://github.com/PhilipDaniels
@@ -77,3 +60,15 @@ This config was inspired / built upon the work of:
 * jimeh: https://github.com/jimeh
 * Falkor: https://github.com/Falkor
 * chriskempson: https://github.com/chriskempson
+
+# TODO
+
+**Upcoming roles:**
+* node.js - development enviroment install
+* ruby - development enviroment install
+* ircserver - bitlbee powered local bnc setup
+
+**Upcoming features:**
+* icdiff install
+* secret management
+* emacs org directory syncing
