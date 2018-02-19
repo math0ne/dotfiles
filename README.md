@@ -26,7 +26,7 @@ Currently Supported Operating Systems:
 
 # Installation Instructions
 
-> _Warning_ Must be run as a non root user, if necessary create and add a user
+> _**Warning:**_ Must be run as a non root user, if necessary create and add a user
 
 **1. Install Ansible**
 ```
@@ -37,7 +37,7 @@ sudo apt-get -y install ansible
 git clone https://github.com/math0ne/dotfiles.git ~/.dotfiles
 ```
 
-> _*Optional:*_ Now you can disable any of the main roles you don't need by commenting them out in the `.dotfiles/playbooks/main.yml` file, eg:
+> _**Optional:**_ Now you can disable any of the main roles you don't need by commenting them out in the `.dotfiles/playbooks/main.yml` file, eg:
 
 ```yaml
   roles:
@@ -45,7 +45,7 @@ git clone https://github.com/math0ne/dotfiles.git ~/.dotfiles
     # - tmux # tmux disabled
 ```
 
-> _*Optional:*_ Additional Ansible Galaxy roles have to be added or removed from both the `.dotfiles/playbooks/main.yml` file:
+> _**Optional:**_ Additional Ansible Galaxy roles have to be added or removed from both the `.dotfiles/playbooks/main.yml` file:
 
 ```yaml
   roles:
@@ -53,7 +53,7 @@ git clone https://github.com/math0ne/dotfiles.git ~/.dotfiles
     - your.role # added custom role
 ```
 
-> _*Optional:*_ And the `.dotfiles/playbooks/requirements.yml` file:
+> _**Optional:**_ And the `.dotfiles/playbooks/requirements.yml` file:
 
 ```yaml
 # - src: nickjj.docker # docker disabled
