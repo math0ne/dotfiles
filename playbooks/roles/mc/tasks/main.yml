@@ -1,0 +1,11 @@
+--
+- name: Install mc using APT
+  sudo: true
+  apt: name={{ item }} state=latest
+  with_items:
+    - mc
+
+- name: Symlink mc dotfiles
+  shell: stow -d ~/.dotfiles/home -t ~/ {{ item }}
+  with_items:
+    - mc

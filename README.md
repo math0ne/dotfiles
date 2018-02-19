@@ -28,6 +28,7 @@ Currently Supported Operating Systems:
 
 > * Must be run as a non root user, if necessary create and add a user
 > * Edit playbooks/main.yml and playbooks_galaxy/main.yml and comment out or remove any roles that you don't want to install
+> * Add additional galaxy roles by addiing entries to playbooks_galaxy/main.yml and playbooks_galaxy/requirements.yml
 
 **1. Install ansible**
 ```
