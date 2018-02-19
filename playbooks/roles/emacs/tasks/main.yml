@@ -1,4 +1,4 @@
---
+---
 - name: Clone the spacemacs repo
   git:
     force: true

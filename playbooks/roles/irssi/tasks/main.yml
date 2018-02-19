@@ -1,4 +1,4 @@
---
+---
 - name: Install irssi using APT
   sudo: true
   apt: name={{ item }} state=latest

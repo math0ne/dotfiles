@@ -1,4 +1,4 @@
---
+---
 - name: Install htop using APT
   sudo: true
   apt: name={{ item }} state=latest
