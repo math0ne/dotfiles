@@ -26,39 +26,38 @@ Currently Supported Operating Systems:
 
 # Installation Instructions
 
-> Must be run as a non root user, if necessary create and add a user
+> _Warning_ Must be run as a non root user, if necessary create and add a user
 
-**1. Install ansible**
+**1. Install Ansible**
 ```
 sudo apt-get -y install ansible
 ```
-**2. Clone the project**
+**2. Clone the project and customise your Ansible roles**
 ```
 git clone https://github.com/math0ne/dotfiles.git ~/.dotfiles
 ```
 
-> Now you can disable any of the main roles you don't need by commenting them out in the `.dotfiles/playbooks/main.yml` file, eg:
+> _Optional_ Now you can disable any of the main roles you don't need by commenting them out in the `.dotfiles/playbooks/main.yml` file, eg:
 
 ```yaml
   roles:
     - core
-    # - tmux
-    - emacs
+    # - tmux # tmux disabled
 ```
 
-> Additional Ansible Galaxy roles have to be added or removed from both the `.dotfiles/playbooks/main.yml` file:
+> _Optional_ Additional Ansible Galaxy roles have to be added or removed from both the `.dotfiles/playbooks/main.yml` file:
 
 ```yaml
   roles:
-    # - nickjj.docker
-    - your.role
+    # - nickjj.docker # docker disabled
+    - your.role # added custom role
 ```
 
-> And the `.dotfiles/playbooks/requirements.yml` file:
+> _Optional_ And the `.dotfiles/playbooks/requirements.yml` file:
 
 ```yaml
-# - src: nickjj.docker
-- src: your.role
+# - src: nickjj.docker # docker disabled
+- src: your.role # added custom role
 ```
 
 **3. Install the galaxy powered roles**
@@ -66,7 +65,7 @@ git clone https://github.com/math0ne/dotfiles.git ~/.dotfiles
 ansible-galaxy install --roles-path=~/.dotfiles/playbooks_galaxy/roles -r ~/.dotfiles/playbooks_galaxy/requirements.yml
 ansible-playbook -i ~/.dotfiles/.inventory -K ~/.dotfiles/playbooks_galaxy/main.yml -e "localuser=$USER"
 ```
-**4. Install the main project**
+**4. Install the main project roles**
 ```
 ansible-playbook -i ~/.dotfiles/.inventory -K ~/.dotfiles/playbooks/main.yml --e "localuser=$USER"
 ```
