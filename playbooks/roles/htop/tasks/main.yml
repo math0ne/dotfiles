@@ -1,11 +1,11 @@
 --
-- name: "Install htop using APT"
+- name: Install htop using APT
   sudo: true
   apt: name={{ item }} state=latest
   with_items:
     - htop
 
-- name: "Symlink htop dotfiles"
+- name: Symlink htop dotfiles
   shell: stow -d ~/.dotfiles/home -t ~/ {{ item }}
   with_items:
     - htop

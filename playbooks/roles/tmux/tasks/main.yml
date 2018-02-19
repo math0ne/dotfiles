@@ -39,3 +39,8 @@
 - name: Symlink tmux-next to tmux
   become: yes
   command: ln -snf /usr/bin/tmux-next /usr/bin/tmux
+
+- name: "Symlink tmux dotfiles"
+  shell: stow -d ~/.dotfiles/home -t ~/ {{ item }}
+  with_items:
+    - tmux

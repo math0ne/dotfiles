@@ -1,5 +1,5 @@
 ---
-- name: Install libraries using APT
+- name: Install core libraries using APT
   sudo: true
   apt: name={{ item }} state=latest
   with_items:

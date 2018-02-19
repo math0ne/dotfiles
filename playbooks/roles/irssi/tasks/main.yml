@@ -1,11 +1,11 @@
 --
-- name: "Install irssi using APT"
+- name: Install irssi using APT
   sudo: true
   apt: name={{ item }} state=latest
   with_items:
-    - mc
+    - irssi
 
-- name: "Symlink irssi dotfiles"
+- name: Symlink irssi dotfiles
   shell: stow -d ~/.dotfiles/home -t ~/ {{ item }}
   with_items:
-    - mc
+    - irssi
