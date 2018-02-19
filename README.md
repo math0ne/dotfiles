@@ -4,30 +4,36 @@
 
 Dotfiles organized using Ansible and GNU stow with a healthy splash of Docker. The font is SourceCodePro Nerd Font. The color scheme is based off Base16.
 
+Provided Roles:
+
+* bin - fun binary command line games utilities and screensavers
+* core - git and stow
+* emacs - spacemacs configuration and custom theme with integrated nerd font powered features
+* htop - custom theme
+* irssi - custom theme and setup
+* ranger - custom theme
+* tmux - tmux-next installation with custom theme and nerd font integration
+* zsh - zsh terminal powered by the powerlevel9k framework with custom theme, awesome aliases, and prompt featuring nerd font symbols throughout
+* docker - installation and helper utilies and application library
+
 Features:
 
 * unified color themes through applications
-* tmux configuration and upgraded install
-* spacemacs configuration
-* zsh terminal powered by the powerlevel9k framework
-* ranger configuration
-* irssi configuration
-* docker install and utilities
-* nerd font symbols features in zsh and spacemacs
+* nerd font symbols everywhere
 * configuration symlinks powered by gnu stow
-* htop configuration
-* git utilities and aliases
 * included putty / mintty configurations
+
+Upcoming roles:
+
+* node.js - development enviroment install
+* ruby - development enviroment install
+* ircserver - bitlbee powered local bnc setup
 
 Upcoming features:
 
-* docker powered local application directory
-* node.js development enviroment install
-* ruby development enviroment install
 * icdiff install
 * secret management
 * emacs org directory syncing
-* dockerized irc setup
 
 Currently Supported Operating Systems:
 
@@ -36,6 +42,8 @@ Currently Supported Operating Systems:
 # Installation Instructions
 
 > Must be run as a non root user, if necessary create and add a user
+
+> Edit playbooks/main.yml and playbooks_galaxy/main.yml and comment out or remove any roles that you don't want to install
 
 **1. Install ansible**
 ```

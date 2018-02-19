@@ -1,0 +1,5 @@
+--
+- name: "Symlink the bin directory dotfiles"
+  shell: stow -d ~/.dotfiles/home -t ~/ {{ item }}
+  with_items:
+    - bin

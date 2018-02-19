@@ -1,0 +1,7 @@
+---
+- name: Install libraries using APT
+  sudo: true
+  apt: name={{ item }} state=latest
+  with_items:
+    - git
+    - stow

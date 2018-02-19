@@ -5,6 +5,12 @@
   vars:
     user: "{{ localuser }}"
   roles:
-    - ubuntu
-    - system
-    - tmux
+    - core # git etc
+    - tmux # install tmux-next and cofnig
+    - emacs # install spaemacs and custom config
+    - zsh # set default shell to zsh and copy config
+    - ranger # config and install
+    - irssi  # config and install
+    - mc  # config and install
+    - htop  # config and install
+    - bin  # copy utility binaries over

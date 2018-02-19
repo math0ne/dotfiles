@@ -1,0 +1,20 @@
+---
+- name: Install libraries using APT
+  sudo: true
+  apt: name={{ item }} state=latest
+  with_items:
+    - zsh
+
+- name: Clone the powerlevel9k zsh framework
+  git:
+    repo: 'https://github.com/bhilburn/powerlevel9k.git'
+    dest: ~/.powerlevel9k
+
+- name: Change default shell to zsh
+  sudo: true
+  user: shell='/usr/bin/zsh' name={{ ansible_ssh_user }}
+
+- name: Symlink zsh dotfiles
+  shell: stow -d ~/.dotfiles/home -t ~/ {{ item }}
+  with_items:
+    - zsh

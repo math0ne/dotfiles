@@ -1,0 +1,22 @@
+--
+- name: "Clone the spacemacs repo"
+  git:
+    force: true
+    repo: 'https://github.com/syl20bnr/spacemacs.git'
+    dest: ~/.emacs.d
+
+- name: "Install emacs using APT"
+  sudo: true
+  apt: name={{ item }} state=latest
+  with_items:
+    - emacs
+
+- name: "Clear the private directory so we can put in our own"
+  file:
+    path: ~/.emacs.d/private
+    state: absent
+
+- name: "Symlink emacs dotfiles"
+  shell: stow -d ~/.dotfiles/home -t ~/ {{ item }}
+  with_items:
+    - emacs
