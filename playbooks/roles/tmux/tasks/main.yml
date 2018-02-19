@@ -5,7 +5,7 @@
   apt: update_cache=yes
   when: update
 
-- name: Install tmux and git
+- name: Install tmux
   apt: name={{ item }} state=present
   with_items:
     - git
@@ -42,6 +42,7 @@
     src: /usr/bin/tmux-next
     dest: /usr/bin/tmux
     state: link
+    force: true
 
 - name: "Symlink tmux dotfiles"
   shell: stow -d ~/.dotfiles/home -t ~/ {{ item }}
