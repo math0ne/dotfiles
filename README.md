@@ -1,4 +1,4 @@
-# Dotfiles organized using Ansible and GNU stow with a healthy splash of Docker.
+# Dotfiles organized using Ansible and GNU stow with a healthy splash of Docker
 
 ![screenshots](https://raw.githubusercontent.com/openist/dotfiles/master/putty/dotfiles-wide.png)
 
