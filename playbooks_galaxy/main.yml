@@ -11,3 +11,4 @@
   roles:
     - ansible-docker
     - ansible-role-nodejs
+    - ansible-role-ruby
