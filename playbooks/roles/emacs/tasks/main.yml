@@ -6,7 +6,7 @@
     dest: ~/.emacs.d
 
 - name: Install emacs using APT
-  sudo: true
+  become: true
   apt: name={{ item }} state=latest
   with_items:
     - emacs

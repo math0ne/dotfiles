@@ -1,6 +1,6 @@
 ---
 - name: Install core libraries using APT
-  sudo: true
+  become: true
   apt: name={{ item }} state=latest
   with_items:
     - git

@@ -1,6 +1,6 @@
 ---
 - name: Install zsh libraries using APT
-  sudo: true
+  become: true
   apt: name={{ item }} state=latest
   with_items:
     - zsh
@@ -11,7 +11,7 @@
     dest: ~/.powerlevel9k
 
 - name: Change default shell to zsh
-  sudo: true
+  become: true
   user: shell='/usr/bin/zsh' name={{ ansible_ssh_user }}
 
 - name: Symlink zsh dotfiles

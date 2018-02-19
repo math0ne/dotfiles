@@ -1,6 +1,6 @@
 ---
 - name: Install mc using APT
-  sudo: true
+  become: true
   apt: name={{ item }} state=latest
   with_items:
     - mc
