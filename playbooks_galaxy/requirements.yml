@@ -1,3 +1,7 @@
 # Install a role from GitHub
 - name: ansible-docker
   src: https://github.com/nickjj/ansible-docker
+
+# Install a role from GitHub
+- name: ansible-role-nodejs
+  src: https://github.com/geerlingguy/ansible-role-nodejs
