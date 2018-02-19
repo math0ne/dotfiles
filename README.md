@@ -1,22 +1,22 @@
-# Personal dotfiles orchestrated with GNU Stow and Ansible
+# Dotfiles organized using Ansible and GNU stow with a healthy splash of Docker.
 
 ![screenshots](https://raw.githubusercontent.com/openist/dotfiles/master/putty/dotfiles-wide.png)
 
-Dotfiles organized using Ansible and GNU stow with a healthy splash of Docker. The font is SourceCodePro Nerd Font. The color scheme is based off Base16.
+My config is based on Ansible roles that can be enabled or disabled based on the needs at hand.  The roles contain application installation scripts and configuration data. The current included roles are:
+* **core** - git and stow
+* **emacs** - spacemacs configuration and custom theme with integrated nerd font powered features
+* **htop** - custom theme
+* **irssi** - custom theme and setup
+* **ranger** - custom theme
+* **tmux** - tmux-next installation with custom theme and nerd font integration
+* **zsh** - zsh terminal powered by the powerlevel9k framework with custom theme, awesome aliases, and prompt featuring nerd font symbols throughout
+* **bin** - fun binary command line games utilities and screensavers
+* **docker** - installation and helper utilies and application library
+* **node.js** - node development enviroment
+* **ruby** - ruby development setup and global bundler install
 
-**Provided Roles:**
-* *core* - git and stow
-* *emacs* - spacemacs configuration and custom theme with integrated nerd font powered features
-* *htop* - custom theme
-* *irssi* - custom theme and setup
-* *ranger* - custom theme
-* *tmux* - tmux-next installation with custom theme and nerd font integration
-* *zsh* - zsh terminal powered by the powerlevel9k framework with custom theme, awesome aliases, and prompt featuring nerd font symbols throughout
-* *bin* - fun binary command line games utilities and screensavers
-* *docker* - installation and helper utilies and application library
-
-**Features:**
-* unified color themes through applications
+The configuration trys to provide common features through the supported roles:
+* unified color themes through applications using base16 variation
 * nerd font symbols everywhere
 * configuration symlinks powered by gnu stow
 * included putty / mintty configurations
@@ -26,9 +26,7 @@ Currently Supported Operating Systems:
 
 # Installation Instructions
 
-> * Must be run as a non root user, if necessary create and add a user
-> * Edit playbooks/main.yml and playbooks_galaxy/main.yml and comment out or remove any roles that you don't want to install
-> * Add additional galaxy roles by addiing entries to playbooks_galaxy/main.yml and playbooks_galaxy/requirements.yml
+> Must be run as a non root user, if necessary create and add a user
 
 **1. Install ansible**
 ```
@@ -38,6 +36,31 @@ sudo apt-get -y install ansible
 ```
 git clone https://github.com/math0ne/dotfiles.git ~/.dotfiles
 ```
+
+> Now you can disable any of the main roles you don't need by commenting them out in the `.dotfiles/playbooks/main.yml` file, eg:
+
+```yaml
+  roles:
+    - core
+    # - tmux
+    - emacs
+```
+
+> Additional Ansible Galaxy roles have to be added or removed from both the `.dotfiles/playbooks/main.yml` file:
+
+```yaml
+  roles:
+    # - nickjj.docker
+    - your.role
+```
+
+> And the `.dotfiles/playbooks/requirements.yml` file:
+
+```yaml
+# - src: nickjj.docker
+- src: your.role
+```
+
 **3. Install the galaxy powered roles**
 ```
 ansible-galaxy install --roles-path=~/.dotfiles/playbooks_galaxy/roles -r ~/.dotfiles/playbooks_galaxy/requirements.yml
