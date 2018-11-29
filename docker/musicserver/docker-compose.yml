@@ -1,0 +1,36 @@
+version: '2'
+
+services:
+  headphones:
+    restart: always
+    image: linuxserver/headphones:latest
+    container_name: headphones
+    env_file: .env
+    ports:
+      - "8181:8181"
+    volumes:
+      - ${CONFIG_ROOT}/headphones:/config
+      - ${DATA_ROOT}:/data
+      - ${MEDIA_ROOT}/music:/music
+
+  googlemusic:
+    restart: always
+    image: ruippeixotog/google-musicmanager
+    container_name: googlemusic
+    ports:
+      - "5900:5900"
+    volumes:
+      - ${MEDIA_ROOT}/music:/music
+      - ${CONFIG_ROOT}/musicuploader:/appdata
+
+  airsonic:
+    restart: always
+    image: linuxserver/airsonic
+    container_name: airsonic
+    ports:
+      - "4040:4040"
+    volumes:
+      - ${MEDIA_ROOT}/music:/music
+      - ${MEDIA_ROOT}/playlists:/playlists
+      - ${MEDIA_ROOT}/podcasts:/podcasts
+      - ${CONFIG_ROOT}/airsonic:/appdata
