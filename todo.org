@@ -1,5 +1,9 @@
 #+TITLE: Outstanding issues and goals for the config
 
+* NEW:
+** Docker broken
+** powerlevel9k is not stable enough to clone, needs to be statically linked.
+
 * EMACS
 ** TODO Get org shift commands mapped to something usful
 ** TODO Add support for visual bookmarks

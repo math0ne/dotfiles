@@ -30,7 +30,7 @@ Currently Supported Operating Systems:
 
 **1. Install Ansible**
 ```
-sudo apt-get -y install ansible
+sudo apt-get -y install ansible git
 ```
 **2. Clone the project and customise your Ansible roles**
 ```
@@ -62,12 +62,12 @@ git clone https://github.com/math0ne/dotfiles.git ~/.dotfiles
 
 **3. Install the galaxy powered roles**
 ```
-ansible-galaxy install --roles-path=~/.dotfiles/playbooks_galaxy/roles -r ~/.dotfiles/playbooks_galaxy/requirements.yml
-ansible-playbook -i ~/.dotfiles/.inventory -K ~/.dotfiles/playbooks_galaxy/main.yml -e "localuser=$USER"
+sudo ansible-galaxy install --roles-path=~/.dotfiles/playbooks_galaxy/roles -r ~/.dotfiles/playbooks_galaxy/requirements.yml
+sudo ansible-playbook -i ~/.dotfiles/.inventory -K ~/.dotfiles/playbooks_galaxy/main.yml -e "localuser=$USER"
 ```
 **4. Install the main project roles**
 ```
-ansible-playbook -i ~/.dotfiles/.inventory -K ~/.dotfiles/playbooks/main.yml --e "localuser=$USER"
+sudo ansible-playbook -i ~/.dotfiles/.inventory -K ~/.dotfiles/playbooks/main.yml --e "localuser=$USER"
 ```
 **5. Close the ssh session and log back in**
 
