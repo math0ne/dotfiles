@@ -86,6 +86,8 @@ This config was inspired / built upon the work of:
 
 # TODO
 
+* powerlevel9k needs to move to stowed, updated have broken my theme
+
 **Upcoming roles:**
 * node.js - development enviroment install
 * ruby - development enviroment install
